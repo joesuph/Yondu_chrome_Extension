@@ -1,12 +1,18 @@
-var voice = new Wad({source : 'mic' }); // At this point, your browser will ask for permission to access your microphone.
-var tuner = new Wad.Poly();
-tuner.setVolume(0); // If you're not using headphones, you can eliminate microphone feedback by muting the output from the tuner.
-tuner.add(voice);
+var voice = null;
+var tuner = null;
 
+
+
+
+$('#setupMic').click(function(){
+    voice = new Wad({source : 'mic' }); // At this point, your browser will ask for permission to access your microphone.
+})
 
 function checkMicUse() {
     if (voice.mediaStreamSource!=null)
-        start()
+    {
+        start()    
+    }
     else
         setTimeout(checkMicUse,2000)
 }
@@ -14,6 +20,10 @@ checkMicUse()
 
 function start() 
 {
+    tuner = new Wad.Poly();
+    tuner.setVolume(0); // If you're not using headphones, you can eliminate microphone feedback by muting the output from the tuner.
+    tuner.add(voice);
+    
     voice.play()
     tuner.updatePitch()
     var logPitch = function(){

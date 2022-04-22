@@ -1,0 +1,19 @@
+{
+    "manifest_version": 2,
+    "name": "Yondu",
+    "short_name": "yondu",
+    "version": "1.0",
+    "description": "browser with whistle",
+    "author": "Joesuph",
+
+    "browser_action": {
+      
+      "default_popup": "controls.html"
+    },
+    "permissions": [
+      "activeTab", 
+      "audioCapture",
+      "tabs"
+    ]
+  }
+  

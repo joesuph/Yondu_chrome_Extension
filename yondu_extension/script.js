@@ -5,8 +5,11 @@ var center = 1100;
 
 
 function setupMic(){
-    voice = new Wad({source : 'mic' }); // At this point, your browser will ask for permission to access your microphone.
-    checkMicUse()
+    if (confirm("can we use your mic?"))
+    {
+        voice = new Wad({source : 'mic' }); // At this point, your browser will ask for permission to access your microphone.
+        checkMicUse()
+    }
 }
 
 
@@ -18,7 +21,7 @@ function stopPitching()
 function checkMicUse() {
     if (voice.mediaStreamSource!=null)
     {
-        start()    
+        start()  
     }
     else
         setTimeout(checkMicUse,2000)
@@ -40,8 +43,8 @@ function start()
     voice.play()
     tuner.updatePitch()
     var logPitch = function(){
-
-        if (tuner.pitch && tuner.noteName)
+        if (typeof tuner.pitch !== 'undefined' && typeof tuner.noteName !== 'undefined')
+        if  (tuner.pitch !==null && tuner.noteName !== null)
         {
             //console.log(tuner.pitch, tuner.noteName)
             if (tuner.pitch > 500 && tuner.pitch < 3000)

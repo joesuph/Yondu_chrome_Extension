@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        <script src="https://unpkg.com/web-audio-daw"></script>
-
+        <script src='control_script.js'></script>
     </head>
     <body>
-        <button id='setupMic' onclick="setupMic()">Start Microphone</button>
-        <button id="stop" onclick="stopPitching()">Stop</button>
+        <button id='setupMic'>Start Microphone</button>
+        <button id="stop">Stop</button>
         
         <div>
             <input type="range" id="center_calibration" 
@@ -25,6 +23,6 @@
                     min="0" max="11">
             <label for="volume">high_sensitivity</label>
         </div>
-        <script src='script.js'></script>
     </body>
+
 </html>
